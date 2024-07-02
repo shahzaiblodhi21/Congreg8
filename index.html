@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <nav
+          class="col-xl-2 col-lg-3 col-md-3 d-none d-md-block bg-light sidebar"
+        >
+          <div class="sidebar-sticky">
+            <div class="text-center">
+              <img src="assets/logo.svg" alt="" width="33%" />
+            </div>
+            <ul class="nav flex-column" style="padding: 35px 20px 20px">
+              <li
+                class="nav-item d-flex align-items-center"
+                style="
+                  cursor: pointer;
+                  border-radius: 10px;
+                  padding-left: 12px;
+                  background: linear-gradient(45deg, #e61515 0%, #ff003d 100%);
+                  align-items: center;
+                  color: white;
+                "
+              >
+                <img src="assets/dash-icon.svg" alt="" />
+                <a
+                  class="nav-link active text-light"
+                  href="#"
+                  style="margin-left: -5px"
+                >
+                  Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <img src="assets/contact-ico.svg" alt="" />
+                <a class="nav-link" href="#"> Contacts </a>
+              </li>
+              <li class="nav-item">
+                <img src="assets/attendence-icon.svg" alt="" />
+                <a class="nav-link" href="#">
+                  Attendance
+                  <span class="float-right">&#9656;</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <img src="assets/decision-ico.svg" alt="" />
+                <a class="nav-link" href="#"> Decision Card </a>
+              </li>
+              <li class="nav-item">
+                <img src="assets/forms-ico.svg" alt="" />
+                <a
+                  class="nav-link"
+                  href="#"
+                  data-toggle="collapse"
+                  data-target="#formsSubMenu"
+                  aria-expanded="false"
+                  aria-controls="formsSubMenu"
+                >
+                  Forms
+                  <span class="float-right">&#9662;</span>
+                </a>
+                <ul class="collapse" id="formsSubMenu">
+                  <li class="nav-item ml-3">
+                    <a class="nav-link" href="#">Manage Form</a>
+                  </li>
+                  <li class="nav-item ml-3">
+                    <a class="nav-link" href="#">Create Form</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <img src="assets/convers-ico.svg" alt="" />
+                <a class="nav-link" href="#"> Conversation </a>
+              </li>
+              <li class="nav-item">
+                <img src="assets/calender-ico.svg" alt="" />
+                <a class="nav-link" href="#"> Calendar </a>
+              </li>
+              <li class="nav-item">
+                <img src="assets/task-ico.svg" alt="" />
+                <a class="nav-link" href="#"> Task Details </a>
+              </li>
+              <li class="nav-item">
+                <img src="assets/automa-ico.svg" alt="" />
+                <a class="nav-link" href="#">
+                  Automations
+                  <span class="float-right">&#9656;</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <img src="assets/interest-ico.svg" alt="" />
+                <a class="nav-link" href="#">
+                  Interests
+                  <span class="float-right">&#9656;</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <img src="assets/settings-ico.svg" alt="" />
+                <a class="nav-link" href="#">
+                  Settings
+                  <span class="float-right">&#9656;</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <main role="main" class="col-lg-9 col-md-9 ml-sm-auto col-xl-10 px-5">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+          >
+            <div>
+              <button class="btn btn-light" id="dateFilter">
+                <i class="fas fa-filter"></i>
+                Date Filter
+              </button>
+            </div>
+            <div class="d-flex align-items-center">
+              <div class="position-relative mr-3">
+                <img src="assets/notification-ico.svg" alt="Notification" />
+                <span
+                  class="badge badge-pill badge-danger position-absolute"
+                  style="top: 2px; right: -5px"
+                  >1</span
+                >
+              </div>
+              <div class="dropdown profile-dropdown">
+                <img
+                  src="assets/profile-logo.svg"
+                  alt="User Profile"
+                  class="rounded-circle"
+                  width="40"
+                  height="40"
+                  id="profileImage"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                />
+                <div class="dropdown-icon">
+                  <img src="assets/dropdown-ico.svg" alt="Dropdown Icon" />
+                </div>
+                <div
+                  class="dropdown-menu dropdown-menu-right"
+                  aria-labelledby="profileImage"
+                >
+                  <div class="">
+                    <div class="d-flex align-items-center p-3">
+                      <img
+                        src="assets/profile-logo.svg"
+                        alt="User Profile"
+                        class="rounded-circle"
+                        width="40"
+                        height="40"
+                      />
+                      <div class="ml-3">
+                        <h6 class="mb-0">Larry Page</h6>
+                        <small>larry.page@gmail.com</small>
+                      </div>
+                      <span class="badge badge-pill badge-primary ml-auto"
+                        >PRO</span
+                      >
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                      <img
+                        src="assets/user-members-ico.svg"
+                        class="pr-1"
+                        class="pr-1"
+                        alt=""
+                      />
+                      <span class="mr-auto">Membership</span>
+                      <span class="badge badge-pill badge-danger"
+                        >Downgrade</span
+                      >
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                      <img
+                        src="assets/account-settin-ico.svg"
+                        class="pr-1"
+                        alt=""
+                      />
+                      Account Settings
+                    </a>
+                    <div
+                      class="dropdown-item d-flex align-items-center justify-content-between toggle-switch"
+                    >
+                      <span class="d-flex align-items-center">
+                        <img
+                          src="assets/dark-mode-ico.svg"
+                          class="pr-1"
+                          alt=""
+                        />Dark Mode
+                      </span>
+                      <input type="checkbox" class="checkbox" id="checkbox" />
+                      <label for="checkbox" class="checkbox-label">
+                        <img src="assets/moon.svg" width="18px" alt="" />
+                        <img src="assets/sun 1.svg" width="16px" alt="" />
+                        <span class="ball"></span>
+                      </label>
+                    </div>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                      <img
+                        src="assets/awitch-chu-ico.svg"
+                        class="pr-1"
+                        alt=""
+                      />
+                      Switch Church
+                    </a>
+                    <div class="ml-2 pl-3" style="font-size: 14px">
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#"
+                      >
+                        <img src="assets/sda-gen-ico.svg" class="pr-1" alt="" />
+                        SDA General</a
+                      >
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#"
+                      >
+                        <img src="assets/congreg-ico.svg" class="pr-1" alt="" />
+                        Congreg8 SDA Cragmoor Church</a
+                      >
+                    </div>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                      <img
+                        src="assets/req-a-feat-ico.svg"
+                        class="pr-1"
+                        alt=""
+                      />
+                      Request a Feature / Feedback
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a
+                      class="dropdown-item text-danger d-flex align-items-center"
+                      href="#"
+                    >
+                      <img src="assets/logout-ico.svg" class="pr-2" alt="" />
+                      Logout
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-sm-center">
+            <div class="col-xl-4 col-lg-6 col-md-9 col-sm-9 onec">
+              <div class="card d-flex flex-row align-items-center">
+                <!-- Left side content (legends and text) -->
+                <div class="card-body">
+                  <div class="card-content">
+                    <h3 class="card-title ">Visitors</h3>
+                    <p
+                      class="card-text"
+                      style="font-size: 13.7px; margin-top: -9px"
+                    >
+                      Get a grip on who visits
+                    </p>
+                    <div class="custom-legend" style="font-size: 13px">
+                      <div data-dataset="0" class="mb-2">
+                        <span
+                          class="legend-color"
+                          style="background-color: #FF003D"
+                        ></span>
+                        Total Visitors
+                      </div>
+                      <div data-dataset="1" class="mb-2">
+                        <span
+                          class="legend-color"
+                          style="background-color: #C00000"
+                        ></span>
+                        First Time Visitors
+                      </div>
+                      <div data-dataset="2">
+                        <span
+                          class="legend-color"
+                          style="background-color: #FFB169"
+                        ></span>
+                        Returning Visitors
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right side content (chart) -->
+                <div class="mr-3">
+                  <canvas id="myPieChart" width="147" height="147"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-9 col-sm-9 ">
+              <div class="card d-flex flex-row align-items-center">
+                <div class="card-body">
+                  <div class="card-content">
+                    <h3 class="card-title">Attendance</h3>
+                    <p
+                      class="card-text"
+                      style="font-size: 13.7px; margin-top: -9px"
+                    >
+                      Attendance tagline goes here
+                    </p>
+                    <div class="legend mb-2 mt-5" style="font-size: 13px">
+                      <div class="mb-2">
+                        <span class="members"></span> Members in Attendance
+                      </div>
+                      <div>
+                        <span class="congregation"></span> Congregation in
+                        Attendance
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-chart mt-5">
+                  <div>
+                    <div class="bar members" id="members-bar"></div>
+                    <div
+                      style="color: #ff003d"
+                      class="bar-value"
+                      id="members-value"
+                    >
+                      0
+                    </div>
+                  </div>
+                  <div>
+                    <div class="bar congregation" id="congregation-bar"></div>
+                    <div
+                      style="color: #424657"
+                      class="bar-value"
+                      id="congregation-value"
+                    >
+                      0
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-md-9 col-sm-9">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-content">
+                    <h3 class="card-title">Forms</h3>
+                    <p
+                      class="card-text"
+                      style="font-size: 13.7px; margin-top: -9px"
+                    >
+                      Attendance tagline goes here
+                    </p>
+                    <div
+                      style="
+                        background: #ff003d;
+                        position: absolute;
+                        bottom: 0px;
+                        left: 0;
+                        padding: 20px;
+                        border-top-right-radius: 15px;
+                        border-bottom-left-radius: 15px;
+                      "
+                    >
+                      <img
+                        src="assets/Form-ico.svg"
+                        alt=""
+                        style="width: 30px; cursor: pointer"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div style="margin-left: 50%" class="chart-container">
+                    <canvas id="myChart"> </canvas>
+                    <h3
+                      style="
+                        position: relative;
+                        left: 50px;
+                        bottom: 35px;
+                        color: #ff003d;
+                      "
+                    >
+                      50:00
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="grid col-xl-4 col-md-9 col-sm-9" style="margin-top: 7%;">
+            <div class="">
+              <div class="card d-flex flex-row align-items-center">
+                <div class="card-body">
+                  <div class="card-content">
+                    <h5 class="card-title" style="font-weight: bold">
+                      Learn about our UserBot
+                    </h5>
+                    <p
+                      class="card-text"
+                      style="
+                        font-size: 8px;
+                        margin-top: -9px;
+                        font-weight: 700;
+                        margin-bottom: 35px;
+                      "
+                    >
+                      Generate more interested and bitmap
+                    </p>
+                    <button
+                      style="
+                        background-color: #565a71;
+                        color: white;
+                        border-radius: 7px;
+                      "
+                      class="btn px-4 px-sm-3"
+                    >
+                      Learn More
+                    </button>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <img src="assets/Ai-Robot 1.svg" width="140px" alt="" />
+                </div>
+              </div>
+            </div>
+            <div style="margin-top: 15%;" >
+              <div class="card absent-members-card pt-3 pb-3" style="background-color: #FFF2F2;">
+                <div class="card-body">
+                  <h5 class="card-title">Absent Members</h5>
+                  <h1 style="color: #D12F2F;" class="card-text">12</h1>
+                  <button class="btn btn-dark px-4" style="background-color: #4A1212;">View List</button>
+                </div>
+                <div class="card-img-overlay d-flex justify-content-end align-items-end">
+                  <img src="assets/absent-mem.svg" alt="Illustration" >
+                </div>
+              </div>
+          </div>
+            </div>
+            <div class="col-xl-8 col-lg-9 mt-5">
+              <div class="card-cont" style="background-color: transparent; border: none;">
+                <div
+                  class="card-header d-flex justify-content-between align-items-center"
+                >
+                  <h5 class="mb-0">Recent Contacts</h5>
+                  <button
+                    class="btn btn-outline-primary btn-sm"
+                    id="refresh-contacts"
+                  >
+                    Refresh Contacts
+                  </button>
+                </div>
+                <div class="table-responsive">
+                  <table  class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>E-Mail</th>
+                        <th>Phone</th>
+                        <th>Status</th>
+                        <th>Type</th>
+                      </tr>
+                    </thead>
+                    <tbody id="contacts-table-body">
+                      <!-- Rows will be inserted here by JavaScript -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="footer d-flex justify-content-between align-items-center">
+            <div>
+              <select class="custom-select" id="comments-per-page">
+                <option value="10" selected>10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+              </select>
+            </div>
+            <nav>
+              <ul class="pagination mb-0">
+                <li class="page-item">
+                  <a class="page-link" href="#">Previous</a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">3</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">...</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">7</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="index.js"></script>
+  </body>
+</html>
